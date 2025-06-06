@@ -264,45 +264,17 @@ function App() {
             ) : (
               tasks.map((task) => (
                 <li key={task.id}>
-                  <div
-                    className="task-card"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      background: "#fff",
-                      borderRadius: 11,
-                      boxShadow: "0 1px 10px rgba(0,0,0,0.08)",
-                      padding: "10px 14px",
-                      minHeight: 46,
-                      position: "relative",
-                      transition: "box-shadow 0.15s"
-                    }}
-                  >
+                  <div className="task-card">
                     <input
                       type="checkbox"
                       checked={!!task.completed}
                       onChange={() => handleToggleTask(task.id)}
-                      style={{
-                        width: 22,
-                        height: 22,
-                        marginRight: 14,
-                        accentColor: "var(--base-light)",
-                        cursor: loading ? "not-allowed" : "pointer"
-                      }}
                       aria-label={`Mark task "${task.text}" as complete`}
                       disabled={loading}
                     />
                     <span
+                      className={`task-text${task.completed ? " completed" : ""}`}
                       style={{
-                        flex: 1,
-                        fontSize: "1.09rem",
-                        color: "#153",
-                        fontFamily:
-                          "'Inter','Roboto','Helvetica','Arial',sans-serif",
-                        textDecoration: task.completed
-                          ? "line-through"
-                          : undefined,
-                        opacity: task.completed ? 0.54 : 1,
                         transition: "opacity 0.13s"
                       }}
                     >
@@ -310,26 +282,15 @@ function App() {
                     </span>
                     {/* Delete icon */}
                     <button
+                      className="del-btn"
                       onClick={() => handleDeleteTask(task.id)}
                       aria-label="Delete task"
                       title="Delete"
                       type="button"
-                      style={{
-                        background: "none",
-                        border: "none",
-                        borderRadius: "50%",
-                        width: 36,
-                        height: 36,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#ff5252",
-                        fontSize: "1.25rem",
-                        marginLeft: 4,
-                        cursor: loading ? "not-allowed" : "pointer",
-                        transition: "background 0.15s"
-                      }}
                       disabled={loading}
+                      style={{
+                        cursor: loading ? "not-allowed" : "pointer"
+                      }}
                     >
                       <svg
                         width="22"
