@@ -94,6 +94,17 @@ export async function updateTask(id, updates) {
   return simulateDelay(updatedTask);
 }
 
+/**
+ * Fetch notifications (demo/mock)
+ * Simulates latency and occasional network error
+ * Returns [{id, text, date, read}]
+ */
+// PUBLIC_INTERFACE
+export async function fetchNotifications() {
+  // 15% chance to fail, for demo polish
+  return simulateDelay([...notifDb], true);
+}
+
 // PUBLIC_INTERFACE
 export async function deleteTask(id) {
   // DELETE /tasks/:id
