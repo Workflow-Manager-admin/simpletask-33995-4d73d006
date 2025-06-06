@@ -84,14 +84,14 @@ function App() {
   const remainingTasks = tasks.filter(t => !t.completed).length;
 
   return (
-    <div className="app" style={{ background: "var(--base-dark)" }}>
+    <div className="app">
       {/* Header */}
       <header
         className="taskapp-header"
         style={{
           padding: "32px 0 16px",
           background: "var(--base-dark)",
-          boxShadow: "0 1px 8px rgba(0,0,0,0.03)",
+          boxShadow: "0 1px 8px #0e1624",
           position: "relative",
           zIndex: 2
         }}
