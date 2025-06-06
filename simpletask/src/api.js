@@ -15,6 +15,28 @@ const mockUserProfile = {
 
 let nextId = 1;
 
+// Demo/mock notification data
+let notifDb = [
+  {
+    id: 9901,
+    text: "🎉 You unlocked premium welcome banner!",
+    date: "Today",
+    read: false,
+  },
+  {
+    id: 9902,
+    text: "🔔 Tasks support batch operations soon.",
+    date: "1d ago",
+    read: true,
+  },
+  {
+    id: 9903,
+    text: "📅 Don’t forget to complete your first task.",
+    date: "2d ago",
+    read: false,
+  },
+];
+
 // PUBLIC_INTERFACE
 /**
  * Simulate network latency and optional error.
