@@ -87,6 +87,9 @@ function App() {
 
   const remainingTasks = tasks.filter(t => !t.completed).length;
 
+  // State for stats sidebar/modal
+  const [statsOpen, setStatsOpen] = useState(false);
+
   return (
     <div className="app">
       {/* Header */}
@@ -100,6 +103,9 @@ function App() {
           zIndex: 2
         }}
       >
+        {/* Statistics Sidebar */}
+        <StatisticsSidebar open={statsOpen} onClose={() => setStatsOpen(false)} />
+
         <div className="container">
           <div
             style={{
@@ -131,7 +137,7 @@ function App() {
             <span
               style={{
                 position: "absolute",
-                right: 56,
+                right: 105,
                 top: "50%",
                 transform: "translateY(-50%)",
                 zIndex: 1,
@@ -140,6 +146,39 @@ function App() {
                 gap: 12
               }}
             >
+              {/* Statistics Sidebar Trigger */}
+              <button
+                aria-label="Statistics"
+                title="Productivity Statistics"
+                className="btn"
+                type="button"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "2px 0 0 0",
+                  width: 42,
+                  height: 42,
+                  borderRadius: "50%",
+                  minWidth: 0,
+                  fontSize: "1.72rem",
+                  background: "var(--card-bg)",
+                  color: "var(--accent)",
+                  border: "2px solid var(--accent)",
+                  boxShadow: "0 2px 10px #229cff33",
+                  marginRight: 8,
+                  cursor: "pointer"
+                }}
+                tabIndex={0}
+                onClick={() => setStatsOpen(true)}
+              >
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{display:"block"}}>
+                  <circle cx="12" cy="12" r="10" stroke="var(--accent)" strokeWidth="2" fill="none"/>
+                  <path d="M9.5 15V11M13 15V9M16.5 15V7"
+                    stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round"/>
+                  <circle cx="12" cy="12" r="6.6" fill="none" stroke="#50f9ed88" strokeWidth="1" />
+                </svg>
+              </button>
               {/* Notification Bell */}
               <span>
                 <NotificationsDropdown />
