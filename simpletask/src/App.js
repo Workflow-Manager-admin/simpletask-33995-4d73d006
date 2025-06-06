@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import DateTimeDisplay from "./DateTimeDisplay";
 import PremiumWelcomeBanner from "./PremiumWelcomeBanner";
+import NotificationsDropdown from "./NotificationsDropdown";
 import {
   fetchTasks,
   addTask as apiAddTask,
@@ -134,9 +135,14 @@ function App() {
                 transform: "translateY(-50%)",
                 zIndex: 1,
                 display: "flex",
-                alignItems: "center"
+                alignItems: "center",
+                gap: 12
               }}
             >
+              {/* Notification Bell */}
+              <span>
+                <NotificationsDropdown />
+              </span>
               <DateTimeDisplay />
             </span>
             {/* Optional + Button (top right) */}
