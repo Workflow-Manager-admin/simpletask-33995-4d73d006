@@ -104,23 +104,40 @@ function App() {
               alignItems: "center",
               justifyContent: "center",
               position: "relative",
-              minHeight: 48
+              minHeight: 56,
+              gap: 14,
+              flexWrap: "wrap"
             }}
           >
             {/* Title */}
             <h1
               style={{
-                flex: 1,
+                flex: "1 1 auto",
                 textAlign: "center",
                 fontWeight: 700,
                 fontSize: "2.2rem",
                 margin: 0,
                 fontFamily:
-                  "'Inter','Roboto','Helvetica','Arial',sans-serif"
+                  "'Inter','Roboto','Helvetica','Arial',sans-serif",
+                whiteSpace: "nowrap"
               }}
             >
               My Tasks
             </h1>
+            {/* Clock and Date, right of title */}
+            <span
+              style={{
+                position: "absolute",
+                right: 56,
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 1,
+                display: "flex",
+                alignItems: "center"
+              }}
+            >
+              <DateTimeDisplay />
+            </span>
             {/* Optional + Button (top right) */}
             <button
               aria-label="Quick Add Task"
