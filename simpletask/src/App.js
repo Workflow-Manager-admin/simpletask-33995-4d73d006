@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import DateTimeDisplay from "./DateTimeDisplay";
+import PremiumWelcomeBanner from "./PremiumWelcomeBanner";
 import {
   fetchTasks,
   addTask as apiAddTask,
