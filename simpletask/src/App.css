@@ -227,7 +227,169 @@ body {
     max-width: 98vw;
   }
 }
-/* Responsive clock / datetime header widget (override inline if stacked) */
+
+/* --- PREMIUM WELCOME BANNER STYLES --- */
+.premium-welcome-banner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 9px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, var(--base-dark), var(--card-bg) 80%);
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 28px #129acf33, 0 1.5px 16px #09324b13;
+  border-radius: 17px;
+  overflow: hidden;
+  padding: 18px 22px 18px 22px;
+  display: flex;
+  align-items: center;
+  min-height: 63px;
+  opacity: 0;
+  transform: translateY(-18px);
+  transition: opacity 0.44s cubic-bezier(.69,.01,.13,1.01),
+              transform 0.48s cubic-bezier(.48,.01,.27,1);
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.premium-welcome-banner.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.premium-welcome-banner.loading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.premium-welcome-main {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 13px;
+}
+
+.profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 16px;
+  flex-shrink: 0;
+  background: var(--input-bg);
+  object-fit: cover;
+  border: 2.5px solid var(--accent);
+  box-shadow: 0 1px 12px #0ca2d922;
+}
+
+.banner-greeting {
+  font-size: 1.21rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  text-shadow: 0 4px 18px #25aef055;
+}
+
+.banner-greeting .name {
+  color: var(--text-color);
+  margin-left: 7px;
+  font-weight: 650;
+  font-size: 1.11em;
+  text-shadow: 0 2.5px 9px #25aef044;
+}
+
+.banner-caption {
+  color: var(--text-secondary);
+  font-size: 1.03rem;
+  font-weight: 400;
+  margin-top: 2.5px;
+  opacity: 0.85;
+  letter-spacing: 0.01em;
+}
+
+/* Loading shimmer for profile/banner */
+.premium-welcome-shimmer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.premium-welcome-shimmer .profile-pic.shimmer {
+  background: linear-gradient(112deg, #193e5b15 30%, var(--input-bg) 52%, #153a5217 68%);
+  position: relative;
+  overflow: hidden;
+  animation: shimmer-flicker 1.1s infinite linear;
+}
+.premium-welcome-shimmer .text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.premium-welcome-shimmer .shimmer {
+  height: 15px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #3a98f010 20%,
+    var(--input-bg) 55%,
+    #23aef022 80%
+  );
+  animation: shimmer-move 1.4s infinite linear;
+}
+.premium-welcome-shimmer .line1 {
+  width: 130px;
+  height: 17px;
+}
+.premium-welcome-shimmer .line2 {
+  width: 88px;
+  height: 13px;
+  margin-top: 3px;
+}
+@keyframes shimmer-move {
+  0% { background-position: -180px 0; }
+  100% { background-position: 320px 0; }
+}
+@keyframes shimmer-flicker {
+  0%,100% { opacity: 0.54; }
+  30% { opacity: 0.97; }
+  50% { opacity: 0.79; }
+  80% { opacity: 0.93; }
+}
+
+/* Error state for banner */
+.premium-welcome-banner.error,
+.premium-welcome-fail {
+  color: #f74b62;
+  background: #2c1219;
+  border: 2px solid #552135;
+  font-weight: 520;
+  border-radius: 17px;
+  text-align: left;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  padding: 15px 22px;
+}
+
+.premium-welcome-fail {
+  box-shadow: 0 2px 22px #f74b6233, 0 1.5px 8px #09324b11;
+}
+
+@media (max-width: 670px) {
+  .premium-welcome-banner {
+    padding: 14px 5vw 14px 4vw;
+    min-height: 54px;
+  }
+  .banner-greeting, .banner-caption {
+    font-size: 1.04rem;
+  }
+  .profile-pic {
+    width: 33px;
+    height: 33px;
+    margin-right: 9px;
+  }
+}
+
 @media (max-width: 500px) {
   .datetime-display {
     font-size: 0.94rem !important;
