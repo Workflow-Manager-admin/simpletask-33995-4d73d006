@@ -191,21 +191,7 @@ function App() {
           )}
 
           {/* Add Task Input */}
-          <div
-            className="task-input-row"
-            style={{
-              display: "flex",
-              gap: 8,
-              alignItems: "center",
-              margin: "0 auto 32px",
-              background: "white",
-              borderRadius: 12,
-              boxShadow: "0 2px 14px rgba(0,0,0,0.07)",
-              padding: "8px 12px",
-              minHeight: 52,
-              maxWidth: 460
-            }}
-            >
+          <div className="task-input-row">
             <input
               className="task-input"
               value={input}
@@ -215,40 +201,23 @@ function App() {
               type="text"
               placeholder="Add a new task..."
               autoFocus
-              style={{
-                flex: 1,
-                border: "none",
-                outline: "none",
-                fontSize: "1.08rem",
-                background: "transparent",
-                color: "#222",
-                fontFamily:
-                  "'Inter','Roboto','Helvetica','Arial',sans-serif",
-                padding: "4px 8px"
-              }}
               aria-label="Task input"
               maxLength={120}
               disabled={adding}
+              style={{
+                flex: 1
+              }}
             />
             <button
               className="btn"
-              style={{
-                background: "var(--base-light)",
-                color: "#fff",
-                borderRadius: 8,
-                fontWeight: 600,
-                fontSize: "1.1rem",
-                padding: "8px 17px",
-                border: "none",
-                boxShadow: "0 1px 7px rgba(0,0,0,0.08)",
-                transition: "opacity 0.18s",
-                opacity: adding || !input.trim() ? 0.65 : 1,
-                cursor: adding || !input.trim() ? "not-allowed" : "pointer"
-              }}
               onClick={handleAddTask}
               disabled={adding || !input.trim()}
               aria-label="Add Task"
               type="button"
+              style={{
+                opacity: adding || !input.trim() ? 0.65 : 1,
+                cursor: adding || !input.trim() ? "not-allowed" : "pointer"
+              }}
             >
               {adding ? "Adding..." : "Add"}
             </button>
