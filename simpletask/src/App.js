@@ -179,6 +179,9 @@ function App() {
         </div>
       </header>
 
+      {/* Premium Welcome Banner */}
+      <PremiumWelcomeBanner />
+
       {/* Main Content */}
       <main>
         <section
