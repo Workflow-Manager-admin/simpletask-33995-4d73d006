@@ -4,6 +4,7 @@ import "./App.css";
 import DateTimeDisplay from "./DateTimeDisplay";
 import PremiumWelcomeBanner from "./PremiumWelcomeBanner";
 import NotificationsDropdown from "./NotificationsDropdown";
+import StatisticsSidebar from "./StatisticsSidebar";
 import {
   fetchTasks,
   addTask as apiAddTask,

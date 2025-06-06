@@ -105,6 +105,35 @@ export async function fetchNotifications() {
   return simulateDelay([...notifDb], true);
 }
 
+/**
+ * Fetch productivity statistics.
+ * Simulates delay and random errors, generates plausible premium stats.
+ * Returns: {tasksCompleted, pomodoros, insights, last5Days: [{day, value}]}
+ */
+// PUBLIC_INTERFACE
+export async function fetchStats() {
+  // 12% chance to fail
+  function sample(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
+  const insightsArr = [
+    "You complete 95% of tasks on Mondays! 🚀",
+    "Afternoon Pomodoros boost your focus by 38%",
+    "You're 24% faster than last week 🔥",
+    "You haven't missed your daily target this week!",
+    "Great job, you completed a tough task streak!",
+    "Every task marked done is a step forward 🌱"
+  ];
+  const res = {
+    tasksCompleted: 13 + Math.floor(Math.random()*15),
+    pomodoros: 10 + Math.floor(Math.random()*15),
+    insights: sample(insightsArr),
+    last5Days: Array.from({length: 5}, (_,i) => ({
+      day: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][(new Date().getDay()+i)%7],
+      value: Math.max(2, Math.floor(Math.random()*8+2))
+    }))
+  };
+  return simulateDelay(res, true);
+}
+
 // PUBLIC_INTERFACE
 export async function deleteTask(id) {
   // DELETE /tasks/:id
