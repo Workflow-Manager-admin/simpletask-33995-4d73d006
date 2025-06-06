@@ -7,6 +7,12 @@ let tasksDb = [
   // Optional: initial dummy data (empty on app start)
 ];
 
+// Mock user profile data
+const mockUserProfile = {
+  username: "Alexandra Rivers",
+  avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+};
+
 let nextId = 1;
 
 // PUBLIC_INTERFACE
@@ -29,6 +35,16 @@ function simulateDelay(data, shouldFail = false) {
 }
 
 // PUBLIC_INTERFACE
+/**
+ * Fetch the user's profile (mock API).
+ * Simulates network latency and occasional errors for premium polish.
+ * Returns: { username: string, avatar?: string }
+ */
+export async function fetchUserProfile() {
+  // 10% chance to fail, to demonstrate error handling
+  return simulateDelay({ ...mockUserProfile }, true);
+}
+
 export async function fetchTasks() {
   // GET /tasks
   return simulateDelay([...tasksDb]);
