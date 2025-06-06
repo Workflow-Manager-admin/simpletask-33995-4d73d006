@@ -227,4 +227,13 @@ body {
     max-width: 98vw;
   }
 }
+/* Responsive clock / datetime header widget (override inline if stacked) */
+@media (max-width: 500px) {
+  .datetime-display {
+    font-size: 0.94rem !important;
+    min-width: 115px !important;
+    padding: 5px 6px !important;
+    margin-left: 0 !important;
+  }
+}
 
