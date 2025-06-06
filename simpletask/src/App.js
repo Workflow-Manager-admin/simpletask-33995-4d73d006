@@ -1,6 +1,7 @@
 // Main app file now using async mock API for CRUD operations
 import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
+import DateTimeDisplay from "./DateTimeDisplay";
 import {
   fetchTasks,
   addTask as apiAddTask,
