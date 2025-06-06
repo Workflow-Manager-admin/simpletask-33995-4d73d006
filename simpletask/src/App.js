@@ -174,14 +174,15 @@ function App() {
           {actionError && (
             <div
               style={{
-                background: "#ffefec",
-                color: "#d92636",
-                border: "1px solid #ffd9d9",
+                background: "#2a181c",
+                color: "#ff4242",
+                border: "1px solid #492a32",
                 borderRadius: 8,
                 padding: "10px 16px",
                 marginBottom: 14,
                 fontWeight: 500,
-                textAlign: "center"
+                textAlign: "center",
+                boxShadow: "0 2px 8px #d3202050"
               }}
               role="alert"
               aria-live="assertive"
